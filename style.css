@@ -1,0 +1,716 @@
+/* General Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f4f4f4;
+    width: 100%;
+    max-width: 100%;
+  
+  
+}
+
+
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #0b0567; /* White */
+
+  /* Matching Blue Gradient */
+
+  color: rgb(236, 229, 229);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  flex-wrap: nowrap; /* Prevent wrapping */
+}
+
+/* Logo Styling */
+.nav__logo {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 24px;
+  flex-shrink: 0; /* Prevent logo from shrinking */
+}
+
+.logo__icon {
+  background-color:#2f0a8d;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 50%;
+  font-size: 18px;
+  margin-right: 8px;
+}
+
+/* Mobile Menu Button - Positioned to the right corner */
+.nav__menu__btn, .close-btn {
+  display: none; /* Hide both in desktop view */
+}
+.nav__menu__btn {
+  display: none; /* Hidden on desktop */
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  z-index: 10;
+}
+
+/* Close Button - Positioned similarly to Hamburger */
+.close-btn {
+  display: none; /* Hidden on desktop and initially hidden on mobile */
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  z-index: 10;
+}
+
+
+.nav__links {
+  display: flex; /* Flex layout on desktop */
+  list-style: none;
+  gap: 30px; /* Space between items for readability */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  flex-grow: 1; /* Let links expand if needed */
+  justify-content: center; /* Center links horizontally */
+  align-items: center; /* Align vertically */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Styling for individual links */
+.nav__links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500; /* Make text more prominent */
+  padding: 8px 12px; /* Add padding for clickable area */
+  border-radius: 5px; /* Rounded corners for a softer look */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+}
+
+.nav__links li a:hover {
+  background-color:white; /* Subtle hover background */
+  color: #d1e0ff; /* Lighter color on hover */
+}
+
+
+/* Contact Button */
+.contact-btn {
+  background-color: #0612f1a8;
+  color: white;
+  padding: 7px 16px;
+  text-decoration: none;
+  border-radius: 5px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: block; /* Show contact button on desktop */
+}
+
+/* Mobile View Styles */
+@media screen and (max-width: 768px) {
+ 
+ 
+
+  /* Show mobile menu button and hide .nav__links by default */
+  .nav__menu__btn {
+    display: block; /* Show hamburger icon on mobile */
+  }
+
+  /* Show the close button only when menu is open */
+  .close-btn.show {
+    display: block;
+  }
+
+  .nav__links {
+    display: none; /* Hide by default on mobile */
+    position: absolute;
+    top: 60px; /* Position menu below navbar */
+    left: 0;
+    background-color:#0d0643;
+    color:green;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px 0;
+    gap: 20px;
+  }
+  
+  .nav__links a {
+    color: #0073e6; /* Blue text color */
+    text-decoration: none; /* Remove underline */
+    font-size: 16px; /* Optional: adjust font size */
+    transition: color 0.3s ease; /* Smooth color transition */
+  }
+
+  /* Hover effect for mobile links */
+  .nav__links a:hover {
+    color: #005bb5; /* Darker blue on hover */
+  }
+  .contact-btn {
+    display: block; /* Show on mobile */
+    color: #0073e6; /* Blue text color for Contact */
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+  }
+  .nav__links.show {
+    display: flex;
+   
+  }
+
+  /* Hide Contact Button on Mobile */
+  .contact-btn {
+    display: none; /* Hide on mobile */
+  }
+}
+
+/* Header Section */
+
+.header__container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #fffaf0;
+  color: #6b6b6b;/* Dark gray for main text */
+  padding: 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden; /* Hide overflow if the content goes outside */
+}
+
+.header__image img {
+  max-width: 350px;
+  width: 100%;
+  height: auto;
+  border-radius: 50%; /* Round image */
+  object-fit: cover;
+  margin-bottom: 30px;
+  transition: transform 0.3s ease, filter 0.3s ease; /* Transition for zoom and blur */
+}
+
+.header__image img:hover {
+  transform: scale(1.05); /* Slight zoom-in effect on hover */
+  filter: blur(2px); /* Apply blur on hover */
+}
+
+.header__content {
+  max-width: 500px;
+  padding: 20px;
+}
+
+.header__content h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase; /* Uppercase for emphasis */
+  color: #05045b; /* Bold blue for title */
+}
+
+.section__description {
+  font-size: 18px;
+  color: #8a8a8a;/* Dark gray for description text */
+  line-height: 1.6;
+  margin-top: 20px;
+}
+
+/* Responsive Design for Mobile */
+@media screen and (max-width: 768px) {
+  .header__container {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+
+  .header__image img {
+    max-width: 250px; /* Adjust the image size for smaller screens */
+    margin-bottom: 20px;
+  }
+
+  .header__content h2 {
+    font-size: 28px; /* Slightly smaller font size for mobile */
+  }
+
+  .section__description {
+    font-size: 16px; /* Smaller font size for description */
+  }
+}
+
+
+/* About Section */
+.about__container {
+  padding: 50px;
+  background-color: #ecf0f1;
+}
+
+.about__content {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+  color: black;
+}
+
+.about__btn {
+  margin-top: 20px;
+}
+
+.about__btn button {
+  background-color: #1260c5;
+  padding: 12px 24px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+}
+
+.about__btn button a {
+  color: white;
+  text-decoration: none;
+}
+
+.about__btn button:hover {
+  background-color: #120e80;
+}
+
+/* Education Section */
+.service__container {
+  padding: 50px;
+  background-color: #fff;
+}
+
+.service__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.service__card {
+  background-color: #ecf0f1;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.logo-container img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.service__card h4 {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.service__card p {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.service__card button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+
+.service__card button a {
+  color: white;
+  text-decoration: none;
+}
+
+.service__card button:hover {
+  background-color: #2980b9;
+}
+
+/* Certifications Section */
+.certifications__container {
+  padding: 50px;
+  background-color: #f9f9f9;
+}
+
+.service__grid2 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.service__card2 {
+  background-color: #ecf0f1;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.service__card2 img {
+  width: 50px;
+  height: 50px;
+}
+
+.service__card2 h3 {
+  margin-top: 10px;
+}
+
+/* Skills Section */
+/* Skills Section Container */
+.skills__container {
+  padding: 60px 30px; /* Added responsive padding */
+  background-color: #f8f9fa; /* Light background color for better contrast */
+  text-align: center;
+  border-radius: 10px; /* Slight rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Grid Layout for Services */
+.service__grid2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Responsive grid */
+  gap: 30px; /* Increased gap between items */
+  margin-top: 40px; /* Space between title and grid */
+}
+
+/* Individual Service Card Styling */
+.service__card2 {
+  background-color: #ffffff; /* White background for clarity */
+  padding: 25px;
+  text-align: center;
+  border-radius: 15px; /* Slightly more rounded corners */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+/* Hover effect for Service Card */
+.service__card2:hover {
+  transform: translateY(-10px); /* Lift the card up */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+}
+
+/* Service Card Image Styling */
+.service__card2 img {
+  width: 60px; /* Slightly larger icon */
+  height: 60px;
+  margin-bottom: 20px; /* Spacing between image and title */
+  object-fit: contain; /* Ensure the image maintains aspect ratio */
+  transition: transform 0.3s ease; /* Add smooth scale effect on hover */
+}
+
+/* Hover effect for Image */
+.service__card2 img:hover {
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
+/* Service Card Title Styling */
+.service__card2 h3 {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: 600; /* Slightly bolder font */
+  color: #34495e; /* Darker text color */
+  letter-spacing: 1px; /* Spacing between letters */
+}
+
+/* Service Card Description Styling */
+.service__card2 p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #7f8c8d; /* Lighter text color */
+  line-height: 1.6; /* Increased line height for better readability */
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .service__grid2 {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Adjust for smaller screens */
+  }
+
+  .service__card2 {
+    padding: 20px;
+  }
+
+  .service__card2 img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .service__card2 h3 {
+    font-size: 16px;
+  }
+}
+
+
+/* Contact Section */
+.contact__container {
+  padding: 50px;
+  background-color: #ecf0f1;
+  
+}
+
+.box {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 1500px;
+  margin: auto;
+}
+
+.box h2 {
+  font-size: 24px;
+  text-align: center;
+}
+
+.box p {
+  font-size: 16px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.contact__socials {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.contact__socials a {
+  margin: 0 15px;
+  font-size: 24px;
+  color: #3498db;
+  text-decoration: none;
+}
+
+.contact__socials a:hover {
+  color: #2980b9;
+}
+#achievements {
+  background-color: #f3f4f6; /* Light gray background for contrast */
+  padding: 60px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 3 items in a row */
+  gap: 30px;
+}
+
+.achievement-item {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.achievement-item:hover {
+  transform: translateY(-10px); /* Lift effect on hover */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.achievement-icon {
+  font-size: 40px;
+  color: #1d98eb;
+  margin-bottom: 15px;
+}
+
+.achievement-item h3 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.achievement-item p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Footer Section */
+footer {
+  background-color: #020752;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  height:120px;
+}
+
+footer .copyright {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+/* Scroll to Top Button */
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #320a8d;
+  color: rgb(248, 247, 247);
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.scroll-to-top-btn:hover {
+  background-color: #2980b9;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+ 
+
+  .service__grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .service__grid2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .header__container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+ 
+    .header__image img {
+      margin-top: 150px;
+      max-width: 350px; /* Adjust the size of the image */
+      margin-bottom: 20px; /* Add space below the image */
+    }
+  
+    /* Add gap between text and image */
+    .header__text {
+      margin-top: 20px; /* Add space above the text */
+    }
+  
+  .header__content h2 {
+    font-size: 28px;
+  }
+}
+/* Projects Section */
+.projects__section {
+  padding: 60px 20px;
+  background-color: #f7f7f7; 
+  text-align: center;
+}
+
+.projects__header h2 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.projects__header p {
+  font-size: 18px;
+  color: #7f8c8d;
+  margin-bottom: 30px;
+}
+
+/* Projects Container */
+.projects__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  justify-items: center;
+}
+
+.project__card {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 350px;
+}
+
+.project__card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.project__details {
+  padding: 20px;
+}
+
+.project__details h3 {
+  font-size: 24px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.project__details p {
+  font-size: 16px;
+  color: #7f8c8d;
+  margin-bottom: 20px;
+}
+
+.project__details .btn {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.project__details .btn:hover {
+  background-color: #2980b9;
+}
+
+/* Hover Effects */
+.project__card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .projects__container {
+    grid-template-columns: 1fr 1fr; /* 2 columns on small screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .projects__container {
+    grid-template-columns: 1fr; /* 1 column on very small screens */
+  }
+}
